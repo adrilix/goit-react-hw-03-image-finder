@@ -10,24 +10,14 @@ export class App extends Component {
   };
 
   handleSearchFormSubmit = inputNameImages => {
-    this.setState({ inputNameImages});
+      this.setState({inputNameImages});
   };
-
 
   render() {
     return (
-      <DivStyled
-        // style={{
-        //   height: '100vh',
-        //   display: 'flex',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   fontSize: 40,
-        //   color: '#010101',
-        // }}
-      >
+      <DivStyled>
         <Searchbar onSubmit = {this.handleSearchFormSubmit}></Searchbar>
-        <ImageGallery input = {this.setState.inputNameImages}></ImageGallery>
+        <ImageGallery input = {this.state.inputNameImages}></ImageGallery>
       </DivStyled>
     );
   }

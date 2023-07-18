@@ -14,13 +14,13 @@ export class Searchbar extends Component {
         inputNameImages: '',
     };
 
-    handleInputChange = event => {
+    hendleInputChange = event => {
         this.setState({
-            inputNameImages: event.currentTarget.value.toLowerCase().trim(),
+            inputNameImages: event.currentTarget.value.trim().toLowerCase(),
         });
     };
 
-    handleSubmit = event => {
+    hendleSubmit = event => {
         event.preventDefault();
         if (this.state.inputNameImages === '') {
             alert('enter word to search images, please');
@@ -34,7 +34,7 @@ export class Searchbar extends Component {
     render() {
         return (
         <HeaderStyled>
-            <SearchFormStyled onSubmit={this.handleSubmit}>
+            <SearchFormStyled onSubmit={this.hendleSubmit}>
                 <SearchFormButtonStyled type="submit">
                     <SearchIconStyled />
                 </SearchFormButtonStyled>
@@ -45,7 +45,7 @@ export class Searchbar extends Component {
                     autoFocus
                     placeholder="Search images and photos"
                     value={this.state.inputNameImages}
-                    onChange={this.handleInputChange}
+                    onChange={this.hendleInputChange}
                 />
             </SearchFormStyled>
 

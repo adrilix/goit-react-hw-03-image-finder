@@ -5,7 +5,7 @@ import { GalleryStyled, GalleryTytleStyled } from './ImageGalleryStyled';
 import {ImageGalleryItem} from '../ImageGalleryItem/ImageGalleryItem';
 import Modal from '../Modal/Modal';
 import { Button } from '../Button/Button';
-import { LoaderSpiner } from '../Loader/Loader';
+import { LoaderSpinner } from '../Loader/Loader';
 
 class ImageGallery extends Component {
     state = {
@@ -20,7 +20,7 @@ class ImageGallery extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (
             prevProps.input !== this.props.input ||
-            prevState.pageNumber !== this.props.pageNumber
+            prevState.pageNumber !== this.state.pageNumber
         ) {
             prevProps.input !== this.props.input
                 ? this.setState({ images: [], status: 'pending', pageNumber: 1 })
@@ -40,9 +40,11 @@ class ImageGallery extends Component {
             })
             .catch(error => this.setState({ status: 'rejected' }));
     }
+    
     }
 
     openModal = img => {
+        console.log(typeof(img));
         this.setState({ showModal: true, largeImage: img });
     };
     closeModal = () => {
@@ -63,7 +65,7 @@ class ImageGallery extends Component {
         if (status === 'pending') {
             return (
                 <GalleryTytleStyled>
-                    <LoaderSpiner /> Search...
+                    <LoaderSpinner /> Search...
                 </GalleryTytleStyled>
             );
         }
@@ -73,7 +75,7 @@ class ImageGallery extends Component {
                 <GalleryTytleStyled>
                     Not found. Try another word to search, please
                 </GalleryTytleStyled>
-            );
+            );      
         }
 
         if (status === 'resolved') {
@@ -90,7 +92,7 @@ class ImageGallery extends Component {
                     {this.state.showModal && (
                         <Modal
                             onCloseModal={this.closeModal}
-                            largeImage={this.setState.largeImage}
+                            largeImage={this.state.largeImage}
                         />
                     )}
                 </>
