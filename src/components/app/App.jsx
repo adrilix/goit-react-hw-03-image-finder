@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { DivStyled } from './AppStyled';
 
 
 export class App extends Component {
@@ -13,7 +14,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div
+      <DivStyled
         // style={{
         //   height: '100vh',
         //   display: 'flex',
@@ -25,7 +26,7 @@ export class App extends Component {
       >
         {/* <Searchbar onSubmit = {this.handleSearchFormSubmit}></Searchbar>
         <ImageGallery input = {this.setState.inputNameImages}></ImageGallery> */}
-      </div>
+      </DivStyled>
     );
   }
 }
