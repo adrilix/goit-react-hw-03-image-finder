@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { DivStyled } from './AppStyled';
+import {Searchbar} from 'components/Searchbar/Searchbar';
+import ImageGallery from '../ImageGallery/ImageGallery';
 
 
 export class App extends Component {
@@ -7,9 +9,9 @@ export class App extends Component {
     inputNameImages: "",
   };
 
-  // handleSearchFormSubmit = inputNameImages => {
-  //   this.setState({ inputNameImages});
-  // };
+  handleSearchFormSubmit = inputNameImages => {
+    this.setState({ inputNameImages});
+  };
 
 
   render() {
@@ -24,8 +26,8 @@ export class App extends Component {
         //   color: '#010101',
         // }}
       >
-        {/* <Searchbar onSubmit = {this.handleSearchFormSubmit}></Searchbar>
-        <ImageGallery input = {this.setState.inputNameImages}></ImageGallery> */}
+        <Searchbar onSubmit = {this.handleSearchFormSubmit}></Searchbar>
+        <ImageGallery input = {this.setState.inputNameImages}></ImageGallery>
       </DivStyled>
     );
   }
