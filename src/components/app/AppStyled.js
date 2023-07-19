@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const DivStyled = styled.div`
 display: block;
-width: 500px;
+/* width: 500px; */
 
 background-color: #FFF8DC;
 
