@@ -20,7 +20,7 @@ export class App extends Component {
         <ImageGallery input = {this.state.inputNameImages}></ImageGallery>
       </DivStyled>
     );
-  }
+  } 
 }
 
 export default App;

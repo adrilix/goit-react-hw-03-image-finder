@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import getImagePixabay from '../services/api';
+import getImagePixabay from '../../services/api';
 import { GalleryStyled, GalleryTytleStyled } from './ImageGalleryStyled';
 import {ImageGalleryItem} from '../ImageGalleryItem/ImageGalleryItem';
 import Modal from '../Modal/Modal';
@@ -32,11 +32,16 @@ class ImageGallery extends Component {
                 if (total === 0) {
                     return this.state({ status: 'rejected' });
                 }
-                return this.setState({
-                    images: [...this.state.images, ...hits],
-                    status: 'resolved',
-                    total,
-                });
+                return this.setState(prevState =>{
+                    return(
+                        {
+                            images: [...prevState.images, ...hits],
+                            status: 'resolved',
+                            total,
+                        }
+                    )
+                }
+                );
             })
             .catch(error => this.setState({ status: 'rejected' }));
     }
@@ -44,7 +49,6 @@ class ImageGallery extends Component {
     }
 
     openModal = img => {
-        console.log(typeof(img));
         this.setState({ showModal: true, largeImage: img });
     };
     closeModal = () => {
