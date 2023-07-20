@@ -7,19 +7,8 @@ import Modal from '../Modal/Modal';
 import { Button } from '../Button/Button';
 import { LoaderSpinner } from '../Loader/Loader';
 
-const ImageGallery = props => {
-    const {
-        input,
-        status,
-        total,
-        images,
-        largeImage,
-        openModal,
-        loadMore,
-        closeModal,
-        showModal
-    } = props;
-    console.log(props);
+const ImageGallery = ({input,status,total,images,largeImage,openModal,loadMore,closeModal,showModal}) => {
+
     return (
         <>
             {status === 'idle' && (
